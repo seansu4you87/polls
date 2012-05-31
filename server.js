@@ -1,5 +1,5 @@
-HOST = null;
-PORT = 5000;
+HOST = "0.0.0.0";
+PORT = process.env.C9_PORT;
 
 var http = require('http');
 var util = require('util');
