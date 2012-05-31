@@ -3,22 +3,16 @@ var yes = 0;
 var no = 0;
 
 setInterval(function () {
-  
   $('.counter').text(count.toString());
   count++;
-  
 }, 1000);
 
 plusYes = function() {
- 
   $.get('/plusyes', {}, function (data) { }, 'json');
-  
 }
 
 plusNo = function() {
-
   $.get('/plusno', {}, function (data) { }, 'json');
-  
 }
 
 updateYes = function() {
@@ -30,7 +24,6 @@ updateNo = function() {
 }
 
 longPoll = function() {
-  
   $.ajax({ cache: false
          , type: "GET"
          , url: "/poll"
@@ -52,7 +45,5 @@ longPoll = function() {
 }
 
 $(document).ready(function() {
-  
   longPoll();
-  
 });
