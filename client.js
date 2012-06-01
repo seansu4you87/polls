@@ -2,17 +2,30 @@ var count = 1;
 var yes = 0;
 var no = 0;
 
+var socket = io.connect('http://localhost');
+socket.on('update', function(data){
+	yes = data['yes'];
+	no = data['no'];
+	
+	updateYes();
+	updateNo()
+})
+
 setInterval(function () {
   $('.counter').text(count.toString());
   count++;
 }, 1000);
 
 plusYes = function() {
-  $.get('/plusyes', {}, function (data) { }, 'json');
+  //$.get('/plusyes', {}, function (data) { }, 'json');
+	socket.emit('plusyes');
+	console.log('plus yes');
 }
 
 plusNo = function() {
-  $.get('/plusno', {}, function (data) { }, 'json');
+  //$.get('/plusno', {}, function (data) { }, 'json');
+	socket.emit('plusno');
+	console.log('plus no');
 }
 
 updateYes = function() {
@@ -23,7 +36,7 @@ updateNo = function() {
   $('#no').text(no.toString());
 }
 
-longPoll = function() {
+/*longPoll = function() {
   $.ajax({ cache: false
          , type: "GET"
          , url: "/poll"
@@ -46,4 +59,4 @@ longPoll = function() {
 
 $(document).ready(function() {
   longPoll();
-});
+});*/

@@ -1,5 +1,5 @@
-var util  = require('util');
-var fs = require('fs');
+var util  = require('util')
+	, fs = require('fs');
 
 index = function(response) {
   writeFileToResponse("index.html", response);
@@ -8,7 +8,7 @@ index = function(response) {
 var yes = 0;
 var no = 0;
 
-plusYes = function(response) {
+/*plusYes = function(response) {
   yes++;
   poll(response);
 };
@@ -24,7 +24,7 @@ poll = function(response) {
                       , "Content-Length": body.length
                       });
   response.end(body)
-}
+}*/
 
 writeFileToResponse = function(filename, response) {
   var body, headers;
@@ -46,7 +46,7 @@ writeFileToResponse = function(filename, response) {
 };
 
 exports.index = index;
-exports.plusYes = plusYes;
-exports.plusNo = plusNo;
-exports.poll = poll;
+//exports.plusYes = plusYes;
+//exports.plusNo = plusNo;
+//exports.poll = poll;
 exports.writeFileToResponse = writeFileToResponse;
